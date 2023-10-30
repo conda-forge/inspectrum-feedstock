@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/miek/inspectrum/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 94e42333aceb06c15fb6fc10d186d61112975fdcf9539357a279e886e9edf35e
+  patches:
+    - 0001-Change-ssize_t-to-ptrdiff_t-for-Windows-compatibilit.patch
 
 build:
   number: 0

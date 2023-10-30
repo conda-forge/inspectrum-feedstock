@@ -1,0 +1,27 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Mon, 30 Oct 2023 13:28:40 -0400
+Subject: [PATCH] Change ssize_t to ptrdiff_t for Windows compatibility.
+
+---
+ src/spectrogramplot.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/spectrogramplot.cpp b/src/spectrogramplot.cpp
+index 3d42c0b..5fc81d9 100644
+--- a/src/spectrogramplot.cpp
++++ b/src/spectrogramplot.cpp
+@@ -292,8 +292,8 @@ void SpectrogramPlot::getLine(float *dest, size_t sample)
+         // past the beginning of the inputSource (if we remove the
+         // std::max(·, 0), then an ugly red bar appears at the beginning
+         // of the spectrogram with large zooms and FFT sizes).
+-        const auto first_sample = std::max(static_cast<ssize_t>(sample) - fftSize / 2,
+-                        static_cast<ssize_t>(0));
++        const auto first_sample = std::max(static_cast<ptrdiff_t>(sample) - fftSize / 2,
++                        static_cast<ptrdiff_t>(0));
+         auto buffer = inputSource->getSamples(first_sample, fftSize);
+         if (buffer == nullptr) {
+             auto neg_infinity = -1 * std::numeric_limits<float>::infinity();
+-- 
+2.40.0
+
