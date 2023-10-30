@@ -1,4 +1,4 @@
-{% set version = "0.2.3" %}
+{% set version = "0.3.1" %}
 
 package:
   name: inspectrum
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/miek/inspectrum/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 7be5be96f50b0cea5b3dd647f06cc00adfa805a395484aa2ab84cf3e49b7227b
+  sha256: 94e42333aceb06c15fb6fc10d186d61112975fdcf9539357a279e886e9edf35e
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -46,8 +46,7 @@ about:
   license_file: LICENSE
   summary: 'Radio signal analyser'
   description: >
-    Inspectrum is a tool for analysing captured signals, primarily from
-    software-defined radio receivers. Features include:
+    Inspectrum is a tool for analysing captured signals, primarily from software-defined radio receivers. Features include:
 
         - Large (100GB+) file support
         - Spectrogram with zoom/pan
