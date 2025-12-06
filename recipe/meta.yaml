@@ -1,4 +1,4 @@
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: inspectrum
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/miek/inspectrum/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 94e42333aceb06c15fb6fc10d186d61112975fdcf9539357a279e886e9edf35e
+  sha256: a11214070c0aa3379e6ffd1728aa9528bf1dd722b8b72218ea1b872471b50c65
   patches:
     - 0001-Change-ssize_t-to-ptrdiff_t-for-Windows-compatibilit.patch
 
@@ -16,6 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - pkg-config
