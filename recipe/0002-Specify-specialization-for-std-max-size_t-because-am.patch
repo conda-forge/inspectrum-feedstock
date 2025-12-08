@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Mon, 8 Dec 2025 12:58:44 -0500
+Subject: [PATCH] Specify specialization for std::max<size_t> because ambiguous
+ on Windows
+
+---
+ src/traceplot.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/traceplot.cpp b/src/traceplot.cpp
+index 7c540f3..961fbc2 100644
+--- a/src/traceplot.cpp
++++ b/src/traceplot.cpp
+@@ -32,7 +32,7 @@ void TracePlot::paintMid(QPainter &painter, QRect &rect, range_t<size_t> sampleR
+ {
+     if (sampleRange.length() == 0) return;
+ 
+-    int samplesPerColumn = std::max(1UL, sampleRange.length() / rect.width());
++    int samplesPerColumn = std::max<size_t>(1UL, sampleRange.length() / rect.width());
+     int samplesPerTile = tileWidth * samplesPerColumn;
+     size_t tileID = sampleRange.minimum / samplesPerTile;
+     size_t tileOffset = sampleRange.minimum % samplesPerTile; // Number of samples to skip from first image tile
+-- 
+2.51.0
+
