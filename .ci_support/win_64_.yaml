@@ -10,7 +10,7 @@ cxx_compiler:
 - vs2022
 fftw:
 - '3'
-qt6_main:
-- '6.9'
+qt_main:
+- '5.15'
 target_platform:
 - win-64
