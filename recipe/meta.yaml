@@ -26,6 +26,8 @@ requirements:
     - fftw
     - liquid-dsp
     - qt6-main
+    # GL headers needed for Qt on Linux
+    - libgl-devel  # [linux]
 
 test:
   requires:
