@@ -25,7 +25,7 @@ requirements:
   host:
     - fftw
     - liquid-dsp
-    - qt6-main
+    - qt-main
     # GL headers needed for Qt on Linux
     - libgl-devel  # [linux]
 
