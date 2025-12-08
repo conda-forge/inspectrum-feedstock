@@ -1,4 +1,4 @@
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: inspectrum
@@ -6,9 +6,10 @@ package:
 
 source:
   url: https://github.com/miek/inspectrum/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 94e42333aceb06c15fb6fc10d186d61112975fdcf9539357a279e886e9edf35e
+  sha256: a11214070c0aa3379e6ffd1728aa9528bf1dd722b8b72218ea1b872471b50c65
   patches:
     - 0001-Change-ssize_t-to-ptrdiff_t-for-Windows-compatibilit.patch
+    - 0002-Specify-specialization-for-std-max-size_t-because-am.patch
 
 build:
   number: 0
@@ -16,23 +17,17 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - pkg-config
     - ninja
-    # CDTs needed for GL.h for Qt
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxext') }}     # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
   host:
     - fftw
     - liquid-dsp
     - qt-main
-    # needed for libGL for Qt
-    - xorg-libxfixes  # [linux]
+    # GL headers needed for Qt on Linux
+    - libgl-devel  # [linux]
 
 test:
   requires:
