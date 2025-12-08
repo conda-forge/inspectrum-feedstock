@@ -9,6 +9,7 @@ source:
   sha256: a11214070c0aa3379e6ffd1728aa9528bf1dd722b8b72218ea1b872471b50c65
   patches:
     - 0001-Change-ssize_t-to-ptrdiff_t-for-Windows-compatibilit.patch
+    - 0002-Add-missing-header-to-define-std-max.patch
 
 build:
   number: 0

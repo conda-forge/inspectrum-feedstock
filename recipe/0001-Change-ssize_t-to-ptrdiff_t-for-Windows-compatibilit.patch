@@ -8,7 +8,7 @@ Subject: [PATCH] Change ssize_t to ptrdiff_t for Windows compatibility.
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/spectrogramplot.cpp b/src/spectrogramplot.cpp
-index 3d42c0b..5fc81d9 100644
+index c71763e..210705c 100644
 --- a/src/spectrogramplot.cpp
 +++ b/src/spectrogramplot.cpp
 @@ -292,8 +292,8 @@ void SpectrogramPlot::getLine(float *dest, size_t sample)
@@ -23,5 +23,5 @@ index 3d42c0b..5fc81d9 100644
          if (buffer == nullptr) {
              auto neg_infinity = -1 * std::numeric_limits<float>::infinity();
 -- 
-2.40.0
+2.51.0
 
